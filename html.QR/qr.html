@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interacción con Nequi y QR</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .container img {
+            width: 150px;
+            height: auto;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .container img:hover {
+            transform: scale(1.1);
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .download-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 80%;
+            border: 2px solid white;
+            border-radius: 8px;
+        }
+
+        .modal .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>                 
+<body>
+
+<div class="container">
+    <!-- Texto arriba -->
+    <h2>Nequi</h2>
+
+    <!-- Imagen principal -->
+    <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732064582/photo_2024-11-19_20-02-18_vu3sso.jpg" 
+         alt="Código QR de Nequi" id="qrImage">
+
+    <!-- Botón de descarga -->
+    <a href="https://www.socialcreator.com/graficador" class="download-btn" download>
+        Descargar Imagen
+    </a>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="imageModal">
+    <span class="close-btn" id="closeModal">&times;</span>
+    <img id="modalImage" src="" alt="Imagen ampliada">
+</div>
+
+<script>
+    // Elementos del modal
+    const qrImage = document.getElementById('qrImage');
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const closeModal = document.getElementById('closeModal');
+
+    // Abrir modal al hacer clic en la imagen
+    qrImage.addEventListener('click', () => {
+        modalImage.src = qrImage.src;
+        modal.style.display = 'flex';
+    });
+
+    // Cerrar modal
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+</script>
+
+</body>
+</html>

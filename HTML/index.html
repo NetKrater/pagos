@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medios de Pago</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+            font-size: 14px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+        }
+        h2 {
+            color: #333;
+            font-size: 20px;
+            text-align: left;
+            margin-bottom: 15px;
+        }
+        .payment-section {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            margin-bottom: 15px;
+        }
+        .payment-section h3 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .payment-section p {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+        .logos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+        .logos img {
+            width: 90px;
+            height: auto;
+            cursor: pointer;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .logos img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Selecciona el medio de pago</h2>
+
+        <!-- Billeteras Digitales -->
+        <div class="payment-section">
+            <h3>Billeteras Digitales</h3>
+            <div class="logos">
+                
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732059999/photo_2024-11-19_18-43-36_h0cbjl.jpg" alt="Nequi">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732060000/photo_2024-11-19_18-43-40_hmepww.jpg" alt="Daviplata">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732059999/photo_2024-11-19_18-43-25_wbcp8t.jpg" alt="Bancolombia">
+
+                <a href="http://127.0.0.1:5500/qr.html" target="_blank">
+                    <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732060002/photo_2024-11-19_18-43-06_leesjp.jpg" alt="Astropay">
+                </a>
+                <a href="https://www.paypal.me/oswaldocuesta1" target="_blank">
+                    <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732060002/photo_2024-11-19_18-42-41_o9nec6.jpg" alt="Paypal">
+
+                </a>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Tarjeta de crédito o débito -->
+        <div class="payment-section">
+            <h3>Tarjeta de crédito o débito</h3>
+            <div class="logos">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732055572/photo_2024-11-19_17-28-58_ittpjr.jpg" alt="Visa">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732056121/photo_2024-11-19_17-41-32_s1qurw.jpg" alt="Mastercard">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732056121/photo_2024-11-19_17-41-40_sganvr.jpg" alt="American Express">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732043937/codensa_p0zhfq.png" alt="Codensa">
+            </div>
+        </div>
+        <hr>
+
+        <!-- Débito bancario PSE -->
+        <div class="payment-section">
+            <h3>Débito bancario PSE</h3>
+            <p>Recuerda verificar el monto máximo habilitado para pagos por internet.</p>
+            <div class="logos">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732043946/pse_z5omrg.png" alt="PSE">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/c_thumb,w_200,g_face/v1732043940/nequi3_tq5hnf.png" alt="Nequi">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732043933/daviplata_veudqo.png" alt="Daviplata">
+            </div>
+        </div>
+        <hr>
+
+        <!-- Pago en efectivo -->
+        <div class="payment-section">
+            <h3>Pago en efectivo</h3>
+            <div class="logos">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732057423/photo_2024-11-19_18-01-43_ki7fhm.jpg" alt="Paga Todo">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732057423/photo_2024-11-19_18-01-48_lpjpox.jpg" alt="apuestas cucuta">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732057423/photo_2024-11-19_18-02-20_srizap.jpg" alt="Gana">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732057423/photo_2024-11-19_18-02-28_g7zlaa.jpg" alt="Gana Gana">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732057423/photo_2024-11-19_18-02-31_l2knuu.jpg" alt="Su Chance">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732057423/photo_2024-11-19_18-02-36_ovbobl.jpg" alt="Acertemos">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732043945/photo_2024-11-19_14-08-23_wl778v.jpg" alt="la perla">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732057424/photo_2024-11-19_18-02-42_b1zj4g.jpg" alt="Apuestas">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732057424/photo_2024-11-19_18-02-46_gyqnmu.jpg" alt="Jer">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732057427/photo_2024-11-19_18-02-51_u6twx8.jpg" alt="Efecty">
+            </div>
+        </div>
+        <hr>
+
+        <!-- Pago en bancos -->
+        <div class="payment-section">
+            <h3>Pago en bancos</h3>
+            <div class="logos">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732059999/photo_2024-11-19_18-43-30_e6mivj.jpg" alt="Banco de Bogotá">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732059999/photo_2024-11-19_18-43-25_wbcp8t.jpg" alt="Bancolombia">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732060181/photo_2024-11-19_18-43-10_kcdyqy.jpg" alt="Davivienda">
+                <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732060003/photo_2024-11-19_18-43-16_yhiafy.jpg" alt="Bbva">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
