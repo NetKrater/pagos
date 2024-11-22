@@ -53,8 +53,9 @@
             color: #333;
         }
 
-        .copy-btn {
-            padding: 8px 12px;
+        .copy-btn,
+        .app-btn {
+            padding: 10px 15px;
             background-color: #007bff;
             color: white;
             border: none;
@@ -62,9 +63,11 @@
             cursor: pointer;
             font-size: 14px;
             transition: background-color 0.3s ease;
+            margin-top: 10px;
         }
 
-        .copy-btn:hover {
+        .copy-btn:hover,
+        .app-btn:hover {
             background-color: #0056b3;
         }
 
@@ -74,12 +77,19 @@
             font-size: 14px;
             display: none;
         }
+
+        .instructions {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
 
 <div class="payment-container">
-    <h2>Realizar Suscripcion</h2>
+    <h2>Datos para Realizar el Pago</h2>
 
     <div class="payment-info">
         <p><span class="label">Banco:</span> Bancolombia</p>
@@ -90,6 +100,19 @@
         </div>
         <p><span class="label">Nombre:</span> Skytrend</p>
     </div>
+
+    <div class="instructions">
+        <p><strong>Instrucciones:</strong></p>
+        <ol>
+            <li>Abre la aplicación Bancolombia en tu celular o haz clic en el botón de abajo.</li>
+            <li>Selecciona la opción <strong>"Transferencias"</strong>.</li>
+            <li>Ingresa el número de cuenta: <strong>67800121261</strong>.</li>
+            <li>Confirma el monto y envía el dinero.</li>
+        </ol>
+        <p>Recuerda verificar el número de cuenta antes de realizar la transferencia.</p>
+    </div>
+
+    <button class="app-btn" onclick="openApp()">Abrir Bancolombia</button>
 
     <p class="success-message" id="successMessage">¡Número de cuenta copiado al portapapeles!</p>
 </div>
@@ -106,6 +129,19 @@
         }).catch(err => {
             console.error('Error al copiar el número de cuenta:', err);
         });
+    }
+
+    function openApp() {
+        // Intenta abrir la aplicación mediante el deep link.
+        const appLink = "bancolombia://";
+        const fallbackLink = "https://www.bancolombia.com";
+
+        window.location.href = appLink;
+
+        // Fallback: si no abre la app, redirige al sitio web.
+        setTimeout(() => {
+            window.location.href = fallbackLink;
+        }, 2000);
     }
 </script>
 
