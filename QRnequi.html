@@ -17,7 +17,12 @@
         }
 
         .container {
-            text-align: center;
+            text-align: center; /* Centra el contenido */
+        }
+
+        .container h2 {
+            font-size: 24px;
+            margin-bottom: 15px; /* Espacio entre el texto y la imagen */
         }
 
         .container img {
@@ -27,6 +32,8 @@
             border: 2px solid #ddd;
             border-radius: 8px;
             transition: transform 0.3s;
+            display: block; /* Asegura que esté centrado */
+            margin: 0 auto; /* Centra la imagen horizontalmente */
         }
 
         .container img:hover {
@@ -42,6 +49,7 @@
             text-decoration: none;
             border-radius: 5px;
             font-size: 16px;
+            text-align: center; /* Centra el texto dentro del botón */
         }
 
         .download-btn:hover {
@@ -82,14 +90,14 @@
 <body>
 
 <div class="container">
-    <!-- Texto arriba -->
-    <h2>Nequi</h2>
+    <!-- Texto centrado arriba -->
+    <h2>QR Nequi</h2>
 
-    <!-- Imagen principal -->
+    <!-- Imagen QR centrada -->
     <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732064582/photo_2024-11-19_20-02-18_vu3sso.jpg" 
          alt="Código QR de Nequi" id="qrImage">
 
-    <!-- Botón de descarga -->
+    <!-- Botón centrado debajo de la imagen -->
     <a href="https://www.socialcreator.com/graficador" class="download-btn" download>
         Descargar Imagen
     </a>
