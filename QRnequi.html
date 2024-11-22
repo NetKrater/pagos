@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interacción con Nequi y QR</title>
+    <title>Pago con Nequi</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,14 +18,21 @@
 
         .container {
             text-align: center; /* Centra el contenido */
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
         }
 
-        .container h2 {
+        h2 {
             font-size: 24px;
             margin-bottom: 15px; /* Espacio entre el texto y la imagen */
+            color: #333;
         }
 
-        .container img {
+        img {
             width: 150px;
             height: auto;
             cursor: pointer;
@@ -36,11 +43,12 @@
             margin: 0 auto; /* Centra la imagen horizontalmente */
         }
 
-        .container img:hover {
+        img:hover {
             transform: scale(1.1);
         }
 
-        .download-btn {
+        .download-btn,
+        .app-btn {
             display: inline-block;
             margin-top: 15px;
             padding: 10px 20px;
@@ -50,82 +58,68 @@
             border-radius: 5px;
             font-size: 16px;
             text-align: center; /* Centra el texto dentro del botón */
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        .download-btn:hover {
+        .download-btn:hover,
+        .app-btn:hover {
             background-color: #0056b3;
         }
 
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal img {
-            max-width: 90%;
-            max-height: 80%;
-            border: 2px solid white;
-            border-radius: 8px;
-        }
-
-        .modal .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 30px;
-            color: white;
-            cursor: pointer;
+        .instructions {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+            text-align: left;
         }
     </style>
 </head>                 
 <body>
 
 <div class="container">
-    <!-- Texto centrado arriba -->
-    <h2>QR Nequi</h2>
+    <h2>Pago con Nequi</h2>
 
     <!-- Imagen QR centrada -->
     <img src="https://res.cloudinary.com/dz9eywqi7/image/upload/v1732064582/photo_2024-11-19_20-02-18_vu3sso.jpg" 
          alt="Código QR de Nequi" id="qrImage">
 
-    <!-- Botón centrado debajo de la imagen -->
-    <a href="https://download1507.mediafire.com/dj1k5l3pelygx-d5rp4c24B7xEbGXlWkcOJ7pUD6rh6771sqnBvOFHm3gOLC9RxG9GP-jvdWVocxiBMSz2y1iMfrrp4QpBz-psmwXOCDJU5S4rztHTMXSKKiAjg6ouaKwxoWeix878WO7Xk_yum7a6IvGVcldb6_l9f8cmJ3vTtGw4M/0ao0b5uyg58j4m1/IMG_20241119_200129_494.jpg" class="download-btn" download>
-        Descargar Imagen
-    </a>
-</div>
+    <!-- Botón de descarga de la imagen -->
+    <a href="https://download1507.mediafire.com/dj1k5l3pelygx-d5rp4c24B7xEbGXlWkcOJ7pUD6rh6771sqnBvOFHm3gOLC9RxG9GP-jvdWVocxiBMSz2y1iMfrrp4QpBz-psmwXOCDJU5S4rztHTMXSKKiAjg6ouaKwxoWeix878WO7Xk_yum7a6IvGVcldb6_l9f8cmJ3vTtGw4M/0ao0b5uyg58j4m1/IMG_20241119_200129_494.jpg" 
+       class="download-btn" download>Descargar QR</a>
 
-<!-- Modal -->
-<div class="modal" id="imageModal">
-    <span class="close-btn" id="closeModal">&times;</span>
-    <img id="modalImage" src="" alt="Imagen ampliada">
+    <!-- Botón para abrir la aplicación Nequi -->
+    <button class="app-btn" onclick="openNequiApp()">Abrir Nequi</button>
+
+    <!-- Instrucciones -->
+    <div class="instructions">
+        <p><strong>Instrucciones para realizar el pago:</strong></p>
+        <ol>
+            <li>Haz clic en <strong>"Descargar QR"</strong> para guardar la imagen del código QR en tu dispositivo.</li>
+            <li>Abre la aplicación Nequi en tu celular o haz clic en <strong>"Abrir Nequi"</strong>.</li>
+            <li>En la aplicación Nequi, selecciona la opción <strong>"Leer código QR"</strong>.</li>
+            <li>Busca la imagen descargada del QR en tu galería o carpeta de descargas y súbela.</li>
+            <li>Confirma el monto del pago y realiza la transferencia.</li>
+        </ol>
+        <p>Recuerda verificar que el monto y el destinatario sean correctos antes de confirmar.</p>
+    </div>
 </div>
 
 <script>
-    // Elementos del modal
-    const qrImage = document.getElementById('qrImage');
-    const modal = document.getElementById('imageModal');
-    const modalImage = document.getElementById('modalImage');
-    const closeModal = document.getElementById('closeModal');
+    function openNequiApp() {
+        // Intenta abrir la aplicación mediante el deep link.
+        const appLink = "nequi://";
+        const fallbackLink = "https://www.nequi.com.co";
 
-    // Abrir modal al hacer clic en la imagen
-    qrImage.addEventListener('click', () => {
-        modalImage.src = qrImage.src;
-        modal.style.display = 'flex';
-    });
+        window.location.href = appLink;
 
-    // Cerrar modal
-    closeModal.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
+        // Fallback: si no abre la app, redirige al sitio web.
+        setTimeout(() => {
+            window.location.href = fallbackLink;
+        }, 2000);
+    }
 </script>
 
 </body>
